@@ -10,14 +10,15 @@
             <%= image_tag('ticket.png') + '#' + h(issue.id) %>
           <% end %>
           - <%= h(issue.project.name) %>
-          - <small><%= h(issue.status.name) %></small>
+        - <small style="background-color:<%= color_from_string(h(issue.status.name)) %>"><%= h(issue.status.name) %></small>
           - <%= h(issue.subject) %>
           </div>
-  
+
           <% if issue.estimated_hours && issue.estimated_hours > 0 %>
           <div class="estimate"><%= h(l_hours(issue.estimated_hours)) %> &nbsp;</div>
+          <br />
           <% end %>
-  
+
           <div class="progress"><%= progress_bar(issue.done_ratio, :width => '100%') %></div>
 
         <% end %>

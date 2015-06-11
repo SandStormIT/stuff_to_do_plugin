@@ -113,4 +113,9 @@ module StuffToDoHelper
     export
   end
 
+  def color_from_string(string)
+    modified_string = "#{string} modifier1"
+    "##{Digest::MD5.hexdigest(modified_string)[0..5]}"
+  end
+
 end

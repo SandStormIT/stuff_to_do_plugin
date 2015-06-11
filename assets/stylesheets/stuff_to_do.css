@@ -221,6 +221,11 @@ li.stuff-to-do-item div.issue-details {
   width: 80%;
 }
 
+div.issue-details small {
+  padding: 2px 2px 2px 2px;
+  color: white;
+}
+
 #user_reportees label, #group_reportees label
 {
   display: block

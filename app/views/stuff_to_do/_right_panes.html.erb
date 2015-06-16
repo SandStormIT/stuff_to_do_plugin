@@ -1,16 +1,6 @@
   <div class="pane" id="available-pane">
     <h3><%= l(:stuff_to_do_what_is_available) %></h3>
 
-    <ol id="available">
-      <% unless @available.empty? %>
-      <%= render :partial => 'item', :collection => @available %>
-      <% else %>
-      <li class="empty-list">
-        <%= l(:stuff_to_do_drag_issue_remove_list) %>
-      </li>
-      <% end %>
-    </ol>
-
     <div class="pane-summary">
       <div id="available-total-progress">
         <%= progress_bar_sum(@available, :done_ratio, { :width => '200px', :legend =>  l(:stuff_to_do_text_total_progress) }) %>
@@ -20,6 +10,16 @@
         <p><%= l(:stuff_to_do_text_total_estimates) %> <%= l_hours(total_estimates(@available)) %></p>
       </div>
     </div>
+
+    <ol id="available">
+      <% unless @available.empty? %>
+      <%= render :partial => 'item', :collection => @available %>
+      <% else %>
+      <li class="empty-list">
+        <%= l(:stuff_to_do_drag_issue_remove_list) %>
+      </li>
+      <% end %>
+    </ol>
 
   </div>
   <%= javascript_tag("var filter = #{params[:filter].nil? ? 'null' : "'" + params[:filter].to_s + "'" }") %>

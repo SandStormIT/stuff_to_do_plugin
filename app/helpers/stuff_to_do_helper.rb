@@ -114,8 +114,16 @@ module StuffToDoHelper
   end
 
   def color_from_string(string)
-    modified_string = "#{string} modifier1"
+    case string
+    when 'In Progress'
+    '#C0C'
+    when 'Under Review'
+    '#c60'
+    when 'Open'
+    '#099'
+    else
     "##{Digest::MD5.hexdigest(modified_string)[0..5]}"
+    end
   end
 
 end

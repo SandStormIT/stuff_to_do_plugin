@@ -5,16 +5,6 @@
       <span class="subtitle"><%= l(:stuff_to_do_text_order_im_doing_it) %></span>
     </h3>
 
-    <ol id="doing-now">
-      <% unless stuff_for(@doing_now).empty? %>
-      <%= render :partial => 'item', :collection => stuff_for(@doing_now) %>
-      <% else %>
-      <li class="empty-list">
-        <%= l(:stuff_to_do_drag_issue_create_list) %>
-      </li>
-      <% end %>
-    </ol>
-
     <div class="pane-summary">
       <div id="doing-now-total-progress">
         <%= progress_bar_sum(issues_for(@doing_now), :done_ratio, { :width => '200px', :legend =>  l(:stuff_to_do_text_total_progress) }) %>
@@ -25,6 +15,16 @@
       </div>
     </div>
 
+    <ol id="doing-now">
+      <% unless stuff_for(@doing_now).empty? %>
+      <%= render :partial => 'item', :collection => stuff_for(@doing_now) %>
+      <% else %>
+      <li class="empty-list">
+        <%= l(:stuff_to_do_drag_issue_create_list) %>
+      </li>
+      <% end %>
+    </ol>
+
   </div>
 
   <div class="pane" id="recommended-pane">
@@ -32,10 +32,6 @@
       <%= l(:stuff_to_do_what_is_recommended) %>
       <span class="subtitle"><%= l(:stuff_to_do_text_by_project_manager) %></span>
     </h3>
-
-    <ol id="recommended">
-      <%= render :partial => 'item', :collection => stuff_for(@recommended) %>
-    </ol>
 
     <div class="pane-summary">
       <div id="recommended-total-progress">
@@ -46,6 +42,10 @@
         <p><%= l(:stuff_to_do_text_total_estimates) %> <%= l_hours(total_estimates(issues_for(@recommended))) %></p>
       </div>
     </div>
+
+    <ol id="recommended">
+      <%= render :partial => 'item', :collection => stuff_for(@recommended) %>
+    </ol>
   </div>
 
 

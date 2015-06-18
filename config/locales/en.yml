@@ -1,5 +1,5 @@
 en:
-  stuff_to_do_title: Stuff To Do
+  stuff_to_do_title: Task Board
   stuff_to_do_what_im_doing_now: "What I'm doing now"
   stuff_to_do_what_is_recommended: "What's recommended to do next"
   stuff_to_do_what_is_available: "What's available"
@@ -16,9 +16,9 @@ en:
   stuff_to_do_label_filter_by: Filter by ...
   stuff_to_do_drag_issue_create_list: Drag issues here to create a new list.
   stuff_to_do_drag_issue_remove_list: Drag issues here to remove them from a list.
-  stuff_to_do_use_as_stuff_to_do: Use as Stuff To Do items
-  stuff_to_do_statuses_available: Statuses available as Stuff To Do Items
-  field_stuff_to_do_enabled: "Stuff to Do enabled"
+  stuff_to_do_use_as_stuff_to_do: Use as Task Board items
+  stuff_to_do_statuses_available: Statuses available as Task Board Items
+  field_stuff_to_do_enabled: "Task Board enabled"
   stuff_to_do_add_to_front: "Add to Front"
   stuff_to_do_add_to_back: "Add to Back"
   stuff_to_do_remove: "Remove"
@@ -31,7 +31,7 @@ en:
   field_stuff_to_do_view_all_reportees: "View All Reportee"
   stuff_to_do_issue_unathorized: "Not authorized to view this issue."
   stuff_to_do_project_unathorized: "Not authorized to view this project."
-  stuff_to_do_title_user: "%{user}'s Stuff to Do"
+  stuff_to_do_title_user: "%{user}'s Task Board"
   permission_view_stuff_to_do: "Use ToDo list"
   permission_view_others_stuff_to_do: "Change ToDo list of others"
   permission_manage_stuff_to_do_reportees: "Manage own reportees"

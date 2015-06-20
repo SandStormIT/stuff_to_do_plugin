@@ -21,7 +21,9 @@ agree_on_estimate_style = agree_on_estimate != '1' ? 'background-color:#ffb300;c
     <% end %>
     <%= link_to(h(issue.subject), { :controller => 'issues', :action => 'show', :id => issue }, { :style => 'color:#3d454c;' }) %>
     <div class="ss-issue-status-and-subject">
-      <div>&nbsp;</div>
+      <% if issue.subject.length < 61 %>
+        <div>&nbsp;</div>
+      <% end %>
       <small class="ss-bold" style="background-color:<%= color_from_string(h(issue.status.name)) %>"><%= h(issue.status.name) %></small>
       [<%= link_to(h(issue.project.name), { :controller => 'projects', :action => 'show', :id => issue.project }, { :style => 'color:#3d454c;' }) %>]
     </div>
@@ -50,7 +52,7 @@ agree_on_estimate_style = agree_on_estimate != '1' ? 'background-color:#ffb300;c
     </div>
 
     <div class="ss-original-estimate-div">
-      <span class="ss-original-estimate <%= agree_on_estimate_style %>">
+      <span class="ss-original-estimate" style="<%= agree_on_estimate_style %>">
         <%= "Orig. Est.: #{h(original_estimate)}" %>
       </span>
     </div>

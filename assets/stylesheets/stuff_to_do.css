@@ -1,7 +1,19 @@
+/* New SandStorm Stylings */
+.ss-estimate { float:right;text-align:center;padding-bottom:2px; }
+.ss-no-estimate { float:right;text-align:center;color:#d8432e;font-weight:bold;padding-bottom:2px; }
+.ss-due-date { margin-bottom:5px;text-align:right;float:right; }
+.ss-due-date-overdue { background-color:#d8432e; color:white; border: 1px solid black; }
+.ss-due-date-missing { background-color:#ffb300; color:black; border: 1px solid black; }
+.ss-original-estimate { border: 1px solid black;padding-left:3px; }
+.ss-original-estimate-div { margin-bottom:2px;text-align:right;float:right; }
+.ss-issue-status-and-subject { font-size:15px; }
+.ss-bold { font-weight:bold; }
+/* END New SandStorm Stylings */
+
 #ajax-indicator { z-index: 300; }
 div.calendar {z-index: 200; }
-ol#available { overflow-y:auto; height: 500px; }
-ol#recommended { overflow-y:auto; height: 300px; }
+ol#available { overflow-y:auto; height: 2000px; }
+ol#recommended { overflow-y:auto; height: 500px; }
 li.issue, li.project { cursor: move; }
 li.project { font-weight: bold; }
 div.pane h3 { color: #507AAA; }
@@ -203,6 +215,10 @@ div.pane-summary table.progress { float: right; margin: 1px 6px;}
 
 li.stuff-to-do-item {
   position: relative;
+  border: 1px dashed black;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
 }
 li.stuff-to-do-item div.estimate {
   position: absolute;
@@ -219,6 +235,7 @@ li.stuff-to-do-item div.estimate {
 }
 li.stuff-to-do-item div.issue-details {
   width: 80%;
+  height:60px;
 }
 
 div.issue-details small {

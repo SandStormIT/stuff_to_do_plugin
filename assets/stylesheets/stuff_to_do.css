@@ -8,6 +8,17 @@
 .ss-original-estimate-div { margin-bottom:2px;text-align:right;float:right; }
 .ss-issue-status-and-subject { font-size:15px; }
 .ss-bold { font-weight:bold; }
+.deployment-status { border: 1px solid black; background-color:#009755; color:#fff; font-weight:bold; }
+
+.ready-for-production {
+  background: repeating-linear-gradient(
+    45deg,
+    #faa,
+    #faa 10px,
+    #fdd 10px,
+    #fdd 20px
+  ) !important;
+}
 /* END New SandStorm Stylings */
 
 #ajax-indicator { z-index: 300; }

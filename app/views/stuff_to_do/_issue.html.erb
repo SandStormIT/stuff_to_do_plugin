@@ -3,11 +3,15 @@ original_estimate = issue.custom_field_values.select { |value| value.custom_fiel
 original_estimate = original_estimate == '' ? 'none' : original_estimate
 agree_on_estimate = issue.custom_field_values.select { |value| value.try(:custom_field_id) == 5 unless value.nil? }.try(:first).try(:value).to_s
 agree_on_estimate_style = agree_on_estimate != '1' ? 'background-color:#ffb300;color:black;' : 'background-color:#009755;font-weight:bold;color:white;'
+deployment_status = issue.custom_field_values.select { |value| value.try(:custom_field_id) == 20 unless value.nil? }.try(:first).try(:value).to_s
+deployment_status_class = deployment_status.downcase.gsub(/ /, '-')
+project_name = issue.project.name
+project_name = truncate(project_name) if deployment_status.present?
 %>
 
 <!-- Need to specify border-color in style attr here to properly override High/Emergency Status CSS -->
 <!-- Also need to specify padding here so that it applies appropriately. -->
-<li style="border-color:black;padding-right:5px;padding-bottom:5px;" class="stuff-to-do-item <%= issue.css_classes if issue.respond_to?(:css_classes) %> <%= issue_counter.odd? ? "odd" : "even" %>" id="stuff_<%= issue.id %>">
+<li style="border-color:black;padding-right:5px;padding-bottom:5px;" class="<%= deployment_status_class %> stuff-to-do-item <%= issue.css_classes if issue.respond_to?(:css_classes) %> <%= issue_counter.odd? ? "odd" : "even" %>" id="stuff_<%= issue.id %>">
   <div class="issue-details">
     <% if !User.current.allowed_to? :view_issues, issue.project and !User.current.allowed_to_globally?(:view_all_reportee_stuff_to_do, {}) %>
       <em><%= l(:stuff_to_do_issue_unathorized) %></em>
@@ -24,8 +28,9 @@ agree_on_estimate_style = agree_on_estimate != '1' ? 'background-color:#ffb300;c
       <% if issue.subject.length < 61 %>
         <div>&nbsp;</div>
       <% end %>
+      <%= "<span class='deployment-status'>&nbsp;#{deployment_status}&nbsp;</span>".html_safe if deployment_status.present? %>
       <small class="ss-bold" style="background-color:<%= color_from_string(h(issue.status.name)) %>"><%= h(issue.status.name) %></small>
-      [<%= link_to(h(issue.project.name), { :controller => 'projects', :action => 'show', :id => issue.project }, { :style => 'color:#3d454c;' }) %>]
+      [<%= link_to(h(project_name), { :controller => 'projects', :action => 'show', :id => issue.project }, { :style => 'color:#3d454c;' }) %>]
     </div>
   </div>
 

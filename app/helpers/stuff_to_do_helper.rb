@@ -122,7 +122,7 @@ module StuffToDoHelper
     when 'Open'
     '#099'
     else
-    "##{Digest::MD5.hexdigest(modified_string)[0..5]}"
+    "##{Digest::MD5.hexdigest(string)[0..5]}"
     end
   end
 

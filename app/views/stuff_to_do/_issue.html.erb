@@ -30,7 +30,7 @@ project_name = truncate(project_name) if deployment_status.present?
       <% end %>
       <%= "<span class='deployment-status'>&nbsp;#{deployment_status}&nbsp;</span>".html_safe if deployment_status.present? %>
       <small class="ss-bold" style="background-color:<%= color_from_string(h(issue.status.name)) %>"><%= h(issue.status.name) %></small>
-      [<%= link_to(h(project_name), { :controller => 'projects', :action => 'show', :id => issue.project }, { :style => 'color:#3d454c;' }) %>]
+      [<%= link_to(h(project_name), { :controller => 'issues', :action => 'index', :project_id => issue.project }, { :style => 'color:#3d454c;' }) %>]
     </div>
   </div>
 

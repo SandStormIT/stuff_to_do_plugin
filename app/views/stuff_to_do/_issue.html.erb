@@ -47,7 +47,7 @@ project_name = truncate(project_name) if deployment_status.present?
     <div class="ss-due-date">
       <%
         due_date_class = ''
-        due_date_class = 'ss-due-date-overdue' if issue.due_date.present? && issue.due_date < Time.now
+        due_date_class = 'ss-due-date-overdue' if issue.due_date.present? && issue.due_date < DateTime.now
         due_date_class = 'ss-due-date-missing' if issue.due_date.nil?
       %>
       <span class="<%= due_date_class %>">
